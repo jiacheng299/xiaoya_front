@@ -1,5 +1,5 @@
 <template>
-  <n-card title="相似病人列表" style="width: 900px" size="huge">
+  <n-card title="相似病人列表" style="width: 900px ;  border-radius: 10px;" size="huge">
     <template #header-extra><h3>TOP6相似病人列表</h3> </template>
     <n-data-table ref="table" :columns="columns" :data="similarPatients" />
   </n-card>

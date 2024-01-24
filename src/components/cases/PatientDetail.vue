@@ -1,9 +1,11 @@
 <template>
-  <div class="card" :style="{ height: cardHeight }" title="卡片">
+  <div class="card" :style="{ height: cardHeight }" style="width: 600px" title="卡片"
+       @mouseleave="showMore=false"
+       @mouseover="showMore=true">
     <div class="card-content">
       <img
-        src="https://07akioni.oss-cn-beijing.aliyuncs.com/07akioni.jpeg"
-        style="
+          src="https://07akioni.oss-cn-beijing.aliyuncs.com/07akioni.jpeg"
+          style="
           margin-top: 20px;
           width: 100px;
           height: 100px;
@@ -27,9 +29,9 @@
         </li>
       </ul>
     </div>
-    <a class="more-link" @click="toggleMore">
-      {{ showMore ? "收起" : "更多" }}
-    </a>
+<!--    <a class="more-link" @click="toggleMore">-->
+<!--      {{ showMore ? "收起" : "更多" }}-->
+<!--    </a>-->
     <transition name="fade">
       <div class="more-info" v-if="showMore">
         <ul class="ul2">
@@ -68,7 +70,7 @@
 </template>
 
 <script setup>
-import { ref, reactive, watch } from "vue";
+import {ref, reactive, watch} from "vue";
 
 const showMore = ref(false);
 const cardHeight = ref("300px");
@@ -79,18 +81,18 @@ function toggleMore() {
 }
 
 watch(
-  showMore,
-  () => {
-    cardHeight.value = showMore.value ? "800px" : "300px";
-  },
-  { immediate: true }
+    showMore,
+    () => {
+      cardHeight.value = showMore.value ? "800px" : "300px";
+    },
+    {immediate: true}
 );
 </script>
 
 <style lang="scss" scoped>
-.card {
-  width: 300px;
-}
+//.card {
+//  width: 300px;
+//}
 
 .card-content {
   text-align: center;
@@ -106,11 +108,13 @@ watch(
   margin-left: -30px;
   text-align: center;
 }
+
 h3 {
   color: #53bca2;
   font-family: "Microsoft YaHei", sans-serif;
   font-weight: bold;
 }
+
 .li1 {
   margin-left: 25px;
 }
@@ -119,15 +123,18 @@ h3 {
   //   font-weight: bold;
   display: block;
 }
+
 .li1 span:first-child {
   color: #53bca2;
   font-family: "Microsoft YaHei", sans-serif;
   font-weight: bold;
 }
+
 .li1:not(:last-child) {
   border-right: 1px solid rgba(0, 0, 0, 0.2);
   padding-right: 25px;
 }
+
 .ul2 {
   list-style: none;
   padding: 0;
@@ -146,9 +153,11 @@ h3 {
   font-weight: bold;
   color: gray;
 }
+
 .li2 span:nth-child(2) {
   display: block;
 }
+
 .more-info {
   margin-top: 20px;
   display: flex;

@@ -1,5 +1,5 @@
 <template>
-  <n-card title="重要生理指标统计" style="width: 700px;max-height: 500px;overflow: auto" size="huge">
+  <n-card title="重要生理指标统计" style="width: 700px;max-height: 500px;overflow: auto ;  border-radius: 10px;" size="huge">
 
     <div>
       <h3 style="float: left; font-weight: bold;">生理指标</h3>

@@ -1,5 +1,5 @@
 <template>
-  <n-card title="治疗结局统计" style="width: 500px" size="huge">
+  <n-card title="治疗结局统计" style="width: 500px;  border-radius: 10px;" size="huge">
     <template #header-extra><h3>治疗结局统计</h3> </template>
     <n-list hoverable clickable style="max-height: 300px; overflow-y: auto">
       <n-list-item v-for="item in items">
@@ -64,6 +64,6 @@ let items = [
   margin-left: 300px;
 }
 .number {
-  color: gray;
+  color: rgb(128, 128, 128);
 }
 </style>

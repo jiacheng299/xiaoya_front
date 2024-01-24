@@ -5,6 +5,7 @@ import App from './App.vue'
 import router from './router'
 // 导入element plus的CSS
 import './assets/reset.css'
+import './assets/global.css'
 import 'element-plus/dist/index.css'
 import * as ElementPlusIconsVue from "@element-plus/icons-vue";
 import 'echarts-gl'

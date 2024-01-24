@@ -5,6 +5,9 @@
       <div class="patientDetail">
         <PatientDetail />
       </div>
+      <div class="similarPatient">
+        <SimilarPatient />
+      </div>
       <div class=""></div>
       <Footer />
     </div>
@@ -14,6 +17,7 @@
 <script setup>
 import {} from "vue";
 import PatientDetail from "../components/cases/PatientDetail.vue";
+import SimilarPatient from "../components/cases/SimilarPatient.vue";
 </script>
 
 <style lang="scss" scoped>
@@ -25,14 +29,20 @@ import PatientDetail from "../components/cases/PatientDetail.vue";
   // margin-top: 16px;
   display: flex;
   justify-content: space-around;
+  flex-direction: column;
+
   overflow: hidden;
   background-color: #eff7f8;
   height: calc(100vh);
 }
 .patientDetail {
   display: flex;
-  margin-top: 100px;
-  margin-right: 1000px;
+
+  margin-left: 200px;
   height: auto;
+}
+.similarPatient {
+  margin-top: 50px;
+  margin-left: 200px;
 }
 </style>

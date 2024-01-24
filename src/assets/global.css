@@ -1,0 +1,17 @@
+.card {
+    background-color: white;
+    width: 600px;
+    border-radius: 10px;
+
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    transition-property: height;
+    transition-duration: 0.4s;
+    transition-timing-function: ease-out;
+}
+h3 {
+    color: #53bca2;
+    font-family: "Microsoft YaHei", sans-serif;
+    font-weight: bold;
+}

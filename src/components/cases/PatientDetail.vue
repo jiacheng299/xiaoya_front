@@ -30,40 +30,38 @@
     <a class="more-link" @click="toggleMore">
       {{ showMore ? "收起" : "更多" }}
     </a>
-    <transition name="fade">
-      <div class="more-info" v-if="showMore">
-        <ul class="ul2">
-          <li class="li2">
-            <span>身高</span>
-            <span>-</span>
-          </li>
-          <li class="li2">
-            <span>体重</span>
-            <span>-</span>
-          </li>
-          <li class="li2">
-            <span>入院年龄</span>
-            <span>-</span>
-          </li>
-          <li class="li2">
-            <span>去世年份-月份</span>
-            <span>xxxx-xx</span>
-          </li>
-          <li class="li2">
-            <span>基础病症</span>
-            <span>-</span>
-          </li>
-          <li class="li2">
-            <span>死因</span>
-            <span>-</span>
-          </li>
-          <li class="li2">
-            <span>聚簇类别</span>
-            <span>-</span>
-          </li>
-        </ul>
-      </div>
-    </transition>
+    <div class="more-info" v-if="showMore">
+      <ul class="ul2">
+        <li class="li2">
+          <span>身高</span>
+          <span>-</span>
+        </li>
+        <li class="li2">
+          <span>体重</span>
+          <span>-</span>
+        </li>
+        <li class="li2">
+          <span>入院年龄</span>
+          <span>-</span>
+        </li>
+        <li class="li2">
+          <span>去世年份-月份</span>
+          <span>xxxx-xx</span>
+        </li>
+        <li class="li2">
+          <span>基础病症</span>
+          <span>-</span>
+        </li>
+        <li class="li2">
+          <span>死因</span>
+          <span>-</span>
+        </li>
+        <li class="li2">
+          <span>聚簇类别</span>
+          <span>-</span>
+        </li>
+      </ul>
+    </div>
   </n-card>
 </template>
 
@@ -89,16 +87,7 @@ watch(
 
 <style lang="scss" scoped>
 .card {
-  background-color: white;
   width: 300px;
-  border-radius: 10px;
-
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
-  transition-property: height;
-  transition-duration: 0.4s;
-  transition-timing-function: ease-out;
 }
 
 .card-content {
@@ -162,8 +151,6 @@ h3 {
   margin-top: 20px;
   display: flex;
   flex-direction: column;
-  //   align-items: center;
-  //   justify-content: center;
 }
 
 .more-link {

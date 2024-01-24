@@ -1,5 +1,5 @@
 <template>
-  <n-card title="重要生理指标统计" style="width: 700px;max-height: 500px;overflow: auto" size="huge">
+  <n-card title="重要生理指标统计" style="width: 700px;max-height: 500px;overflow: auto ;  border-radius: 10px;" size="huge">
 
     <div>
       <h3 style="float: left; font-weight: bold;">生理指标</h3>
@@ -9,7 +9,10 @@
           <h3 style="float: right; margin-right: 20px; font-weight: bold;">重要指数
           </h3>
         </template>
-        表示相似病人某个生理指标的重要程度, 数值越大表示该指标越重要 (范围: 0-100)
+        <div style="word-wrap:break-word;
+word-break:normal;
+width: 300px">
+          表示相似病人某个生理指标的重要程度, 数值越大表示该指标越重要 (范围: 0-100)</div>
       </n-tooltip>
 
     </div>

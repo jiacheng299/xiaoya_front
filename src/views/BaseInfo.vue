@@ -16,6 +16,8 @@
 
 <script setup>
 import {} from "vue";
+import Header from '../components/layout/Header.vue';
+import Footer from '../components/layout/Footer.vue';
 import PatientDetail from "../components/cases/PatientDetail.vue";
 import Container from "@/components/cases/Container.vue";
 </script>

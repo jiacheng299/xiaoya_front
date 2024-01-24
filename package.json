@@ -15,6 +15,7 @@
     "echarts-gl": "^2.0.9",
     "element-plus": "^2.2.34",
     "moment": "^2.29.4",
+    "naive-ui": "^2.37.3",
     "pinia": "^2.0.32",
     "vite-plugin-svg-icons": "^2.0.1",
     "vue": "^3.2.47",

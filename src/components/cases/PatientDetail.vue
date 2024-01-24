@@ -1,5 +1,5 @@
 <template>
-  <n-card class="card" :style="{ height: cardHeight }" title="卡片">
+  <div class="card" :style="{ height: cardHeight }" title="卡片">
     <div class="card-content">
       <img
         src="https://07akioni.oss-cn-beijing.aliyuncs.com/07akioni.jpeg"
@@ -64,7 +64,7 @@
         </ul>
       </div>
     </transition>
-  </n-card>
+  </div>
 </template>
 
 <script setup>

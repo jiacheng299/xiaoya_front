@@ -91,6 +91,11 @@ const router = createRouter({
           component: () => import('../components/account/RegisterForm.vue'),
         },
       ]
+    },
+    {
+      path: '/cases',
+      name: '用户病例详细信息',
+      component:()=> import('../views/BaseInfo.vue')
     }
   ]
 })

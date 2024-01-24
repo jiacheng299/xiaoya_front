@@ -4,7 +4,7 @@ import Components from 'unplugin-vue-components/vite'
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 // 支持自动导入element Plus
-import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
+import { ElementPlusResolver,NaiveUiResolver  } from 'unplugin-vue-components/resolvers'
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -17,8 +17,15 @@ export default defineConfig({
         /\.vue$/, /\.vue\?vue/, // .vue
       ],
       // 自动导入的包
-      imports:['vue','vue-router','@vueuse/core'],
-      resolvers: [ElementPlusResolver()],
+      imports: ['vue', 'vue-router', '@vueuse/core', {
+        'naive-ui': [
+            'useDialog',
+            'useMessage',
+            'useNotification',
+            'useLoadingBar'
+          ]
+      }],
+      resolvers: [ElementPlusResolver(),NaiveUiResolver()],
     }),
     // 组件自动导入
     Components({

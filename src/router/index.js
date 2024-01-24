@@ -45,11 +45,11 @@ const router = createRouter({
           name: 'AI模型预测',
           component: () => import('../views/Predict.vue')
         },
-        {
-          path: '/uncertainty',
-          name: '不确定性量化',
-          component: () => import('../views/Uncertainty.vue')
-        },
+        // {
+        //   path: '/uncertainty',
+        //   name: '不确定性量化',
+        //   component: () => import('../views/Uncertainty.vue')
+        // },
         {
           path: '/unfairness',
           name: '不公平性挖掘',
@@ -97,6 +97,7 @@ const router = createRouter({
       name: '用户病例详细信息',
       component:()=> import('../views/BaseInfo.vue')
     }
+
   ]
 })
 router.beforeEach((to, from) => {

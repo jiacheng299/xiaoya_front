@@ -97,6 +97,7 @@ const router = createRouter({
       name: '用户病例详细信息',
       component:()=> import('../views/BaseInfo.vue')
     }
+
   ]
 })
 router.beforeEach((to, from) => {

@@ -9,7 +9,10 @@
           <h3 style="float: right; margin-right: 20px; font-weight: bold;">重要指数
           </h3>
         </template>
-        表示相似病人某个生理指标的重要程度, 数值越大表示该指标越重要 (范围: 0-100)
+        <div style="word-wrap:break-word;
+word-break:normal;
+width: 300px">
+          表示相似病人某个生理指标的重要程度, 数值越大表示该指标越重要 (范围: 0-100)</div>
       </n-tooltip>
 
     </div>

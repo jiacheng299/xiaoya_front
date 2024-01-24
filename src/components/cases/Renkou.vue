@@ -1,5 +1,5 @@
 <template>
-  <n-card title="人口统计学信息统计" style="width: 700px" size="huge">
+  <n-card :title="'人口统计学信息统计(共'+number+'名病人)'" style="width: 700px" size="huge">
     <template #header-extra>
     </template>
     <n-space vertical>

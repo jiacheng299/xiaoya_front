@@ -1,5 +1,5 @@
 <template>
-  <n-card title="AI观察与建议" style="width: 800px;  border-radius: 10px;" size="huge">
+  <n-card title="AI观察与建议" style=" width: 600px;border-radius: 10px;" >
 
     <n-timeline>
 

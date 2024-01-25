@@ -1,9 +1,5 @@
 <template>
-  <n-card title="卡片插槽示例" style="width: 700px" size="huge">
-    <template #header-extra>人口统计学信息统计 </template>
-    卡片内容
-    <template #footer> #footer </template>
-    <template #action> #action </template>
+
   <n-card :title="'人口统计学信息统计(共'+number+'名病人)'" style="width: 700px ;  border-radius: 10px;" size="huge">
     <template #header-extra>
     </template>

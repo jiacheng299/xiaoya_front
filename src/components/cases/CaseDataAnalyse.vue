@@ -1,7 +1,7 @@
 <template>
   <!--    <div class="analyse">-->
   <n-flex vertical>
-    <n-card style="width: 700px ;  border-radius: 10px;">
+    <n-card style="width: 900px ;  border-radius: 10px;">
 
       <n-h3>
         当前重要指标：
@@ -31,12 +31,12 @@
         </div>
       </n-space>
     </n-card>
-    <n-card style="width: 700px; border-radius: 10px;" title="风险曲线">
+    <n-card style="width: 900px; border-radius: 10px;" title="风险曲线">
       <template #header-extra>
         <n-space>
-<!--          <n-button type="tertiary" @click="showRiskCurve = !showRiskCurve">-->
-<!--            {{ showRiskCurve ? '隐藏' : '显示' }}风险曲线-->
-<!--          </n-button>-->
+          <n-button type="tertiary" @click="showRiskCurve = !showRiskCurve">
+            {{ showRiskCurve ? '隐藏' : '显示' }}风险曲线
+          </n-button>
           <n-button type="tertiary" @click="resetSelect">
             重置
           </n-button>

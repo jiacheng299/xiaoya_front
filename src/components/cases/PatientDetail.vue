@@ -2,7 +2,7 @@
   <div
     class="card"
     :style="{ height: cardHeight }"
-    style="width: 600px"
+    style="width: 400px"
     title="卡片"
     @mouseleave="showMore = false"
     @mouseover="showMore = true"

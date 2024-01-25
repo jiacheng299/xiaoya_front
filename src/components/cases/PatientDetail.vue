@@ -1,11 +1,16 @@
 <template>
-  <div class="card" :style="{ height: cardHeight }" style="width: 600px" title="卡片"
-       @mouseleave="showMore=false"
-       @mouseover="showMore=true">
+  <div
+    class="card"
+    :style="{ height: cardHeight }"
+    style="width: 600px"
+    title="卡片"
+    @mouseleave="showMore = false"
+    @mouseover="showMore = true"
+  >
     <div class="card-content">
       <img
-          src="https://07akioni.oss-cn-beijing.aliyuncs.com/07akioni.jpeg"
-          style="
+        src="https://07akioni.oss-cn-beijing.aliyuncs.com/07akioni.jpeg"
+        style="
           margin-top: 20px;
           width: 100px;
           height: 100px;
@@ -17,21 +22,21 @@
       <ul class="ul1">
         <li class="li1">
           <span>编号</span>
-          <span>1</span>
+          <span>{{ patientData.patient_id }}</span>
         </li>
         <li class="li1">
           <span>性别</span>
-          <span>男</span>
+          <span>{{ patientData.sex == 1 ? "男" : "女" }}</span>
         </li>
         <li class="li1">
           <span>出生年份</span>
-          <span>2002</span>
+          <span>{{ patientData.birth_year }}</span>
         </li>
       </ul>
     </div>
-<!--    <a class="more-link" @click="toggleMore">-->
-<!--      {{ showMore ? "收起" : "更多" }}-->
-<!--    </a>-->
+    <!--    <a class="more-link" @click="toggleMore">-->
+    <!--      {{ showMore ? "收起" : "更多" }}-->
+    <!--    </a>-->
     <transition name="fade">
       <div class="more-info" v-if="showMore">
         <ul class="ul2">
@@ -49,7 +54,9 @@
           </li>
           <li class="li2">
             <span>去世年份-月份</span>
-            <span>xxxx-xx</span>
+            <span>{{
+              patientData.dead_date ? patientData.dead_date : "-"
+            }}</span>
           </li>
           <li class="li2">
             <span>基础病症</span>
@@ -57,11 +64,11 @@
           </li>
           <li class="li2">
             <span>死因</span>
-            <span>-</span>
+            <span>{{ patientData.outcome == 1 ? "死于..." : "-" }}</span>
           </li>
           <li class="li2">
             <span>聚簇类别</span>
-            <span>-</span>
+            <span>{{ patientData.cluster_id }}</span>
           </li>
         </ul>
       </div>
@@ -70,22 +77,31 @@
 </template>
 
 <script setup>
-import {ref, reactive, watch} from "vue";
+import { ref, reactive, watch } from "vue";
 
 const showMore = ref(false);
 const cardHeight = ref("300px");
-
+const data = {
+  patient_id: 1,
+  sex: 1,
+  age: 73,
+  birth_year: 1947,
+  outcome: 0,
+  dead_date: "",
+  cluster_id: 7,
+};
+let patientData = ref(data);
 function toggleMore() {
   showMore.value = !showMore.value;
   console.log(cardHeight.value);
 }
 
 watch(
-    showMore,
-    () => {
-      cardHeight.value = showMore.value ? "800px" : "300px";
-    },
-    {immediate: true}
+  showMore,
+  () => {
+    cardHeight.value = showMore.value ? "800px" : "300px";
+  },
+  { immediate: true }
 );
 </script>
 

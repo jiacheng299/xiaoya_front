@@ -1,80 +1,93 @@
 <template>
-  <n-card title="相似病人列表" style="width: 900px ;  border-radius: 10px;" size="huge">
+  <n-card
+    title="相似病人列表"
+    style="width: 900px; border-radius: 10px"
+    size="huge"
+  >
     <template #header-extra><h3>TOP6相似病人列表</h3> </template>
-    <n-data-table ref="table" :columns="columns" :data="similarPatients" />
+    <n-data-table
+      ref="table"
+      :columns="columns"
+      :data="formattedSimilarPatients"
+    />
   </n-card>
 </template>
 <script setup>
-let similarPatients = [
+let data = [
   {
-    gender: "男",
-    disease: "高血压",
-    symptoms: ["头痛", "眩晕"],
-    admissionAge: 60,
-    deathAge: 75,
-    causeOfDeath: "心脏病",
-    similarVisitPeriod: "2010-2015",
-    similarityIndex: 0.8,
+    patient_id: 64,
+    similarity: 99.99,
+    age: 67,
+    sex: 1,
+    admission_date: "2020-02-05",
+    discharge_date: "2020-02-18",
   },
   {
-    gender: "女",
-    disease: "糖尿病",
-    symptoms: ["多饮", "多尿"],
-    admissionAge: 45,
-    deathAge: 65,
-    causeOfDeath: "肾衰竭",
-    similarVisitPeriod: "2005-2010",
-    similarityIndex: 0.6,
+    patient_id: 217,
+    similarity: 84.07,
+    age: 51,
+    sex: 1,
+    admission_date: "2020-02-14",
+    discharge_date: "2020-02-18",
   },
   {
-    gender: "男",
-    disease: "高血压",
-    symptoms: ["头痛", "眩晕"],
-    admissionAge: 60,
-    deathAge: 75,
-    causeOfDeath: "心脏病",
-    similarVisitPeriod: "2010-2015",
-    similarityIndex: 0.8,
+    patient_id: 368,
+    similarity: 79.54,
+    age: 64,
+    sex: 1,
+    admission_date: "2020-02-10",
+    discharge_date: "2020-02-18",
   },
   {
-    gender: "女",
-    disease: "糖尿病",
-    symptoms: ["多饮", "多尿"],
-    admissionAge: 45,
-    deathAge: 65,
-    causeOfDeath: "肾衰竭",
-    similarVisitPeriod: "2005-2010",
-    similarityIndex: 0.6,
+    patient_id: 245,
+    similarity: 79.45,
+    age: 61,
+    sex: 1,
+    admission_date: "2020-02-09",
+    discharge_date: "2020-02-13",
   },
   {
-    gender: "男",
-    disease: "高血压",
-    symptoms: ["头痛", "眩晕"],
-    admissionAge: 60,
-    deathAge: 75,
-    causeOfDeath: "心脏病",
-    similarVisitPeriod: "2010-2015",
-    similarityIndex: 0.8,
+    patient_id: 205,
+    similarity: 75.23,
+    age: 67,
+    sex: 0,
+    admission_date: "2020-02-10",
+    discharge_date: "2020-02-18",
   },
   {
-    gender: "女",
-    disease: "糖尿病",
-    symptoms: ["多饮", "多尿"],
-    admissionAge: 45,
-    deathAge: 65,
-    causeOfDeath: "肾衰竭",
-    similarVisitPeriod: "2005-2010",
-    similarityIndex: 0.6,
+    patient_id: 116,
+    similarity: 70.08,
+    age: 69,
+    sex: 0,
+    admission_date: "2020-02-05",
+    discharge_date: "2020-02-17",
   },
-  // 其他病人的信息
 ];
+let similarPatients = ref(data);
+const genderMap = {
+  0: "男",
+  1: "女",
+};
+let formattedSimilarPatients = computed(() => {
+  return similarPatients.value.map((patient) => {
+    const deathAge = patient.deathAge ? patient.deathAge : "-";
+    const causeOfDeath = patient.causeOfDeath ? patient.causeOfDeath : "-";
+    return {
+      ...patient,
+      sex: genderMap[patient.sex],
+      similarVisitPeriod: `${patient.admission_date} - ${patient.discharge_date}`,
+      deathAge: deathAge,
+      causeOfDeath: causeOfDeath,
+    };
+  });
+});
 let columns = [
   {
     title: "性别",
-    key: "gender",
+    key: "sex",
     sorter(A, B) {
-      const genderMap = { 男: 1, 女: 2 }; // 定义性别的顺序映射关系
-      return genderMap[A.gender] - genderMap[B.gender];
+      const temp = { 男: 0, 女: 1 };
+      return temp[A.sex] - temp[B.sex];
     },
   },
   {
@@ -87,9 +100,9 @@ let columns = [
   },
   {
     title: "入院年龄",
-    key: "admissionAge",
+    key: "age",
     sorter(A, B) {
-      return A.admissionAge - B.admissionAge;
+      return A.age - B.age;
     },
   },
   {
@@ -107,23 +120,23 @@ let columns = [
     title: "相似就诊时间段",
     key: "similarVisitPeriod",
     sorter(rowA, rowB) {
-      const dateA = rowA.similarVisitPeriod.split("-"); // 将日期字符串分割为数组
-      const dateB = rowB.similarVisitPeriod.split("-");
+      const dateA = new Date(rowA.admission_date);
+      const dateB = new Date(rowB.admission_date);
 
-      if (dateA[0] != dateB[0]) {
-        // 按照年份排序
-        return parseInt(dateA[0]) - parseInt(dateB[0]);
+      if (dateA < dateB) {
+        return -1;
+      } else if (dateA > dateB) {
+        return 1;
       } else {
-        // 年份相同，按照月份排序
-        return parseInt(dateA[1]) - parseInt(dateB[1]);
+        return 0;
       }
     },
   },
   {
     title: "相似度指数",
-    key: "similarityIndex",
+    key: "similarity",
     sorter(A, B) {
-      return A.similarityIndex - B.similarityIndex;
+      return A.similarity - B.similarity;
     },
   },
 ];
